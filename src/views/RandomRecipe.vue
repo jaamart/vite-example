@@ -6,7 +6,7 @@ export default {
       instructions: "And here you can read about how to do it",
       imgSource: null,
       link: null,
-      ingredients: [],
+      ingredients: null,
     };
   },
   methods: {
@@ -30,18 +30,30 @@ export default {
 };
 </script>
 
+<style>
+.imageandingredients {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+</style>
+
 <template>
   <h1>Get a random recipe</h1>
   <button type="button" @click="fetchRecipe()">Random Recipe</button>
   <h2>{{ recipeName }}</h2>
-  <img :src="imgSource" alt="" v-if="imgSource" />
-  <p v-else>Here you will see a picture</p>
-  <h3>Ingredients</h3>
-  <ul>
-    <template v-for="ingredient of ingredients" :key="ingredient.index">
-      <li v-if="ingredient">{{ ingredient }}</li>
-    </template>
-  </ul>
+  <div class="imageandingredients">
+    <img :src="imgSource" alt="" v-if="imgSource" />
+    <p v-else>Here you will see a picture</p>
+    <div>
+      <h3 v-if="ingredients">Ingredients</h3>
+      <ul>
+        <template v-for="ingredient of ingredients" :key="ingredient.index">
+          <li v-if="ingredient">{{ ingredient }}</li>
+        </template>
+      </ul>
+    </div>
+  </div>
   <p>{{ instructions }}</p>
   <a v-if="link" :href="link">Watch a Youtube-video</a>
 </template>

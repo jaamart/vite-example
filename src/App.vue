@@ -45,24 +45,44 @@ li {
 img {
   max-width: 300px;
 }
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  max-width: 700px;
+  margin: auto;
+  box-shadow: 5px 5px 25px;
+  padding: 20px;
+}
+
+main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 </style>
 
 <template>
-  <nav>
-    <ul>
-      <li>
-        <RouterLink to="/randomrecipe">Random Recipe</RouterLink>
-      </li>
-      <li>
-        <RouterLink to="/searchbycategory">Search By Category</RouterLink>
-      </li>
-      <li>
-        <RouterLink to="/searchbyname">Search By Name</RouterLink>
-      </li>
-    </ul>
-  </nav>
-  <main>
-    <RouterView />
-  </main>
-  <MyFooter copy="jaamart" source="https://www.themealdb.com" />
+  <div class="wrapper">
+    <nav>
+      <ul>
+        <li>
+          <RouterLink to="/randomrecipe">Random Recipe</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/searchbycategory">Search By Category</RouterLink>
+        </li>
+        <li>
+          <RouterLink to="/searchbyname">Search By Name</RouterLink>
+        </li>
+      </ul>
+    </nav>
+    <main>
+      <RouterView />
+    </main>
+    <MyFooter copy="jaamart" source="https://www.themealdb.com" />
+  </div>
 </template>
